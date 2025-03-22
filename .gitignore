@@ -1,0 +1,55 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RaBBitMq/RaBBitMq.csproj
+/RaBBitMq.sln
+# Visual Studio e compilação
+.vs/
+*.user
+*.suo
+*.psess
+*.vsp
+*.vspx
+*.log
+*.tlog
+*.vscode/
+
+# Build
+bin/
+obj/
+
+# Dependências do NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+
+# Logs, banco de dados e arquivos temporários
+*.log
+logs/
+*.pdb
+*.mdb
+*.db-shm
+*.db-wal
+
+# Configurações locais
+appsettings.Development.json
+secrets.json
+
+# Diretórios do IIS
+.publish/
+wwwroot/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Rider e JetBrains
+.idea/
+*.sln.iml
+
+# Configuração do Sistema Operacional
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
