@@ -8,7 +8,7 @@ namespace MessageBroker.Relatorios
 {
     public class Lista
     {
-        public List<SolicitacaoRelatorio> Relatorio { get; set; }
+        public List<SolicitacaoRelatorio> Relatorio { get; set; } = new List<SolicitacaoRelatorio>();
     }
 
     public class SolicitacaoRelatorio

@@ -1,0 +1,7 @@
+comando para baixar o rabbtmq e configura a as portas
+docker run -d --name rabbit-mq -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+
+login: guest senha: guest
+
+aprender sobre:
+Fanout, Topic, Header, direct
