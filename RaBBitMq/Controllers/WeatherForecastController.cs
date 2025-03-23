@@ -1,3 +1,4 @@
+using MassTransit;
 using MessageBroker.Relatorios;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +11,16 @@ namespace RaBBitMq.Controllers
        
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IBus _bus;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IBus bus)
         {
             _logger = logger;
+            _bus = bus;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             var solicitacao = new SolicitacaoRelatorio() 
             {
@@ -30,6 +33,9 @@ namespace RaBBitMq.Controllers
 
             lis.Relatorio.Add(solicitacao);
 
+            var eventResquest = new RelatorioSolicitadoEvent(solicitacao.Id, solicitacao.Nome);
+
+            await _bus.Publish(eventResquest); // eventos te o custume de trabalar nomes no passado 
           
 
             return Ok(lis);

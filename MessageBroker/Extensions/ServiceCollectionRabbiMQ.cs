@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using MessageBroker.Bus;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -10,6 +11,8 @@ namespace MessageBroker.Extensions
         {
             service.AddMassTransit(busConfigurator =>
             {
+                busConfigurator.AddConsumer<RelatorioSolicitadoEventConsumer>();
+
                 busConfigurator.UsingRabbitMq((ctx, cfg) =>
                 {
                     cfg.Host(new Uri("amqp://localhost:5672"), host =>
